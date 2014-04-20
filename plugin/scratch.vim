@@ -23,3 +23,7 @@ nnoremap <silent> gS :call scratch#insert(1)<cr>
 xnoremap <silent> gs :<c-u>call scratch#selection(0)<cr>
 xnoremap <silent> gS :<c-u>call scratch#selection(1)<cr>
 nnoremap gZzZz gs
+
+if g:scratch_toggle_enable
+  execute 'noremap '.g:scratch_toggle_key.' :Scratch<CR>'
+endif

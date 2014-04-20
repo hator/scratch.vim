@@ -31,6 +31,10 @@ function! s:open_window(position)
       execute a:position . g:scratch_height . 'split +buffer' . scr_bufnum
     endif
   endif
+  if g:scratch_toggle_enable
+    execute 'map '.g:scratch_toggle_key.' :call <SID>close_window(1)<CR>'
+    execute 'autocmd BufLeave <buffer> map '.g:scratch_toggle_key.' :Scratch<CR>'
+  endif
 endfunction
 
 function! s:close_window(force)
